@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "423539096931",
+    "firebase_url": "https://filmybonanza.firebaseio.com",
+    "project_id": "filmybonanza",
+    "storage_bucket": "filmybonanza.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:423539096931:android:a54ed267f72a4e2b7de756",
+        "android_client_info": {
+          "package_name": "com.example.filmybonanza"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "423539096931-vthrrjnodjf1hegf748su2j3r3qqagtu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.filmybonanza",
+            "certificate_hash": "20e9c974e235525192d75e119e11fc35540cf4ef"
+          }
+        },
+        {
+          "client_id": "423539096931-puct6209jc1jncq78q4lnejm76h5mmba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDX65Dvvg0jd-KHWN7uV5preu30QQCqsek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "423539096931-puct6209jc1jncq78q4lnejm76h5mmba.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
