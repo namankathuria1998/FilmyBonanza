@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Enter the location of the cinema "
+        >
+    </EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Show timings"
+            android:layout_margin="20dp"
+            android:layout_marginStart="50dp">
+        </TextView>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:id="@+id/radioGroup">
+
+        <RadioButton
+            android:id="@+id/first"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="  10 AM - 1 PM "
+            android:layout_marginTop="10dp"
+            android:checked="false"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/second"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="   3PM - 6PM"
+            android:layout_marginTop="20dp"
+            android:checked="false"
+
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/third"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="   9PM - 12AM"
+            android:layout_marginTop="20dp"
+            android:checked="false"
+
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seat Matrix"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="80dp"
+            style="bold"
+            android:textSize="40dp"
+            >
+        </TextView>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+
+            >
+
+        </ImageView>
+    </RadioGroup>
+
+
+
+</LinearLayout>
