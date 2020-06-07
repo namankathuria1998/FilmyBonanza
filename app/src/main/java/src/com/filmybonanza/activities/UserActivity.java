@@ -57,7 +57,7 @@ public class UserActivity extends AppCompatActivity {
             map.put("uid",new AttributeValue(FirebaseAuth.getInstance().getCurrentUser().getUid()));
             map.put("userName",new AttributeValue(FirebaseAuth.getInstance().getCurrentUser().getDisplayName()));
             map.put("userEmail",new AttributeValue(FirebaseAuth.getInstance().getCurrentUser().getEmail()));
-            map.put("userPassword",new AttributeValue(""));
+            map.put("UserPhoneNo",new AttributeValue(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber()));
 
             putItemRequest.setTableName("UsersDetails");
             putItemRequest.setItem(map);

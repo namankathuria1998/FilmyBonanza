@@ -1,6 +1,7 @@
 package src.com.filmybonanza.handler;
 
 import androidx.appcompat.app.AppCompatActivity;
+import src.com.filmybonanza.SeatAvailability;
 import src.com.filmybonanza.dao.DynamodbImpl;
 import src.com.filmybonanza.Event;
 import src.com.filmybonanza.R;
@@ -42,5 +43,31 @@ public class EventHandler extends AppCompatActivity {
         return events;
     }
 
+    public String getNoOfAvailableTickets(String key)
+    {
+        return DynamodbImpl.dynamodbDao.getNoOfAvailableTickets(key);
+    }
 
+    public void decreaseTickets(String key,int ticketsavail,int ticketsToBeBooked)
+    {
+        DynamodbImpl.dynamodbDao.decreaseTickets(key,ticketsavail,ticketsToBeBooked);
+    }
+
+    public SeatAvailability getSeatStatus(String key)
+    {
+        return DynamodbImpl.dynamodbDao.getSeatStatus(key);
+    }
+    public void setSeat(String key,String whatToBeSet)
+    {
+        DynamodbImpl.dynamodbDao.setSeat(key,whatToBeSet);
+    }
+
+    public String getSeatMatrixInTickets(String locatioon_timings)
+    {
+        return DynamodbImpl.dynamodbDao.getSeatMatrixInTickets(locatioon_timings);
+    }
+    public void setSeatMatrixInTickets(String locatioon_timings,int i,char ch) {
+
+        DynamodbImpl.dynamodbDao.setSeatMatrixInTickets(locatioon_timings,i,ch);
+    }
 }

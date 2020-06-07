@@ -33,14 +33,14 @@ public class ShowUserDetails extends AppCompatActivity {
 
         final EditText name=findViewById(R.id.name);
         final EditText email=findViewById(R.id.email);
-        final EditText password=findViewById(R.id.password);
+        final EditText phoneNo=findViewById(R.id.phoneNo);
 
         final Button edit=findViewById(R.id.btn);
         final Button save = findViewById(R.id.save);
         save.setEnabled(false);
         name.setEnabled(false);
         email.setEnabled(false);
-        password.setEnabled(false);
+        phoneNo.setEnabled(false);
 
 
 
@@ -51,7 +51,7 @@ public class ShowUserDetails extends AppCompatActivity {
 
         name.setText(userDetails.getUserName());
         email.setText(userDetails.getUserEmail());
-        password.setText(userDetails.getUserPassword());
+        phoneNo.setText(userDetails.getUserPhoneNo());
 
 
         edit.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +60,7 @@ public class ShowUserDetails extends AppCompatActivity {
                 save.setEnabled(true);
                 name.setEnabled(true);
                 email.setEnabled(true);
-                password.setEnabled(true);
+                phoneNo.setEnabled(true);
 
             }
         });
@@ -72,7 +72,7 @@ public class ShowUserDetails extends AppCompatActivity {
 
                 String curname = name.getText().toString();
                 String curemail = email.getText().toString();
-                String curpassword = password.getText().toString();
+                String curpassword = phoneNo.getText().toString();
 
                 FirebaseAuth.getInstance().getCurrentUser().updateEmail(curemail);
                 UserDetails newuserDetails=new UserDetails(curname,curemail,curpassword,FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -81,7 +81,7 @@ public class ShowUserDetails extends AppCompatActivity {
                 save.setEnabled(false);
                 name.setEnabled(false);
                 email.setEnabled(false);
-                password.setEnabled(false);
+                phoneNo.setEnabled(false);
 
             }
         });

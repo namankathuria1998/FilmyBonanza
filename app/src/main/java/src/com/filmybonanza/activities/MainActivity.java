@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         // It will then authorize the user to check whether he can enter as an admin or not
 
         alertDialog = new AlertDialog.Builder(this)
-                .setTitle("Enter app as a manager ??")
+                .setTitle("Enter app as an Admin ??")
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

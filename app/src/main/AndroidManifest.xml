@@ -14,9 +14,9 @@
     <application
 
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/mymovie"
         android:label="Filmy Bonanza"
-        android:roundIcon="@mipmap/ic_launcher_round"
+
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".handler.EventHandler" />
@@ -26,6 +26,7 @@
         <activity android:name=".activities.ShowUserDetails" />
         <activity android:name=".activities.MovieBookings" />
         <activity android:name=".activities.ShowEventDetails" />
+        <activity android:name=".activities.Ticket" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

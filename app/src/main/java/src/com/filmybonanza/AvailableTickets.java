@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookedEvent {
+public class AvailableTickets {
 
-    String eventId , typeOfEvent , dateOfbooking , timeOfBooking , poster , title , uid,date ,timings,location;
+    String location_timings , availTickets , seatMatrix;
 }

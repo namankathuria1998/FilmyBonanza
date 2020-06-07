@@ -52,11 +52,11 @@ public class UserHandler extends AppCompatActivity {
 
     public ArrayList<BookedEvent> getUserBookings(String userId)
     {
-        return null;
+        return DynamodbImpl.dynamodbDao.getUserBookings(userId);
     }
 
     public void bookMovie(BookedEvent bookedEvent)
     {
-
+        DynamodbImpl.dynamodbDao.bookMovie(bookedEvent);
     }
 }

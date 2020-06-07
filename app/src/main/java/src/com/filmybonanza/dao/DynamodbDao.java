@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import src.com.filmybonanza.BookedEvent;
 import src.com.filmybonanza.Event;
+import src.com.filmybonanza.SeatAvailability;
 import src.com.filmybonanza.UserDetails;
 
 public interface DynamodbDao {
@@ -17,5 +18,11 @@ public interface DynamodbDao {
     void displayEventDetails(Event event, Context context);
     ArrayList<Event> getEvents(String eventtype);
     ArrayList<BookedEvent> getUserBookings(String userId);
+    String getNoOfAvailableTickets(String key);
+    void decreaseTickets(String key,int ticketsavail,int ticketsToBeBooked);
+    SeatAvailability getSeatStatus(String key);
+    void setSeat(String key,String whatToBeSet);
+    String getSeatMatrixInTickets(String locatioon_timings);
+    void setSeatMatrixInTickets(String locatioon_timings, int i,char ch);
 
 }

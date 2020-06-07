@@ -7,9 +7,12 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class BookedEvent {
+@AllArgsConstructor
+public class SeatAvailability {
 
-    String eventId , typeOfEvent , dateOfbooking , timeOfBooking , poster , title , uid,date ,timings,location;
+        String location_timings_seat , isLockAcquired , isBooked;
+
+//        @DynamoDBVersionAttribute
+        String uid;
 }

@@ -45,8 +45,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="30dp"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="5dp"
                             android:text="Title"
+                            android:textStyle="bold"
                             android:textColor="#fff"
                             />
 
@@ -72,6 +73,7 @@
                             android:layout_height="wrap_content"
                             android:text="Date of Booking"
                             android:textColor="#fff"
+                            android:textStyle="bold"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="15dp">
                         </TextView>
@@ -90,6 +92,7 @@
                             android:layout_height="wrap_content"
                             android:text="Time of Booking"
                             android:textColor="#fff"
+                            android:textStyle="bold"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="15dp">
                         </TextView>
@@ -101,6 +104,7 @@
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="5dp"
                             android:text="Time"
+                            android:layout_marginBottom="10dp"
                             android:textColor="#fff"
                             />
 

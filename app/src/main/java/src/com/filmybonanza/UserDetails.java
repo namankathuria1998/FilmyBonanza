@@ -3,12 +3,12 @@ package src.com.filmybonanza;
 
 public class UserDetails {
 
-    private String userName , userEmail , UserPassword , uid;
+    private String userName , userEmail , UserPhoneNo , uid;
 
-    public UserDetails(String userName, String userEmail, String UserPassword, String uid) {
+    public UserDetails(String userName, String userEmail, String UserPhoneNo, String uid) {
         this.userName = userName;
         this.userEmail = userEmail;
-        this.UserPassword = UserPassword;
+        this.UserPhoneNo = UserPhoneNo;
         this.uid = uid;
     }
 
@@ -23,8 +23,8 @@ public class UserDetails {
         return this.userEmail;
     }
 
-    public String getUserPassword() {
-        return this.UserPassword;
+    public String getUserPhoneNo() {
+        return this.UserPhoneNo;
     }
 
     public String getUid() {
@@ -39,8 +39,8 @@ public class UserDetails {
         this.userEmail = userEmail;
     }
 
-    public void setUserPassword(String UserPassword) {
-        this.UserPassword = UserPassword;
+    public void setUserPhoneNo(String UserPhoneNo) {
+        this.UserPhoneNo = UserPhoneNo;
     }
 
     public void setUid(String uid) {

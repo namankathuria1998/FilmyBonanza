@@ -5,6 +5,21 @@ android {
     compileSdkVersion 28
 
 
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    configurations {
+        all*.exclude module: 'aws-java-sdk-core' // This removes all other versions of `support-v4` if gets duplicated from all the artifacts.
+        all*.exclude module: 'aws-java-sdk-dynamodb'
+    }
+
     defaultConfig {
         applicationId "src.com.filmybonanza"
         minSdkVersion 24
@@ -44,9 +59,9 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.firebaseui:firebase-ui-auth:6.2.1'
     implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.razorpay:checkout:1.5.16'
 
-
-
+    implementation 'com.amazonaws:dynamodb-lock-client:1.1.0'
 //    compileOnly 'org.projectlombok:lombok:1.18.8'
 //    annotationProcessor 'org.projectlombok:lombok:1.18.8'
 

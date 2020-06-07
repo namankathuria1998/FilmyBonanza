@@ -6,7 +6,7 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsyncClient;
 public class DynamodbClient {
 
     private static AmazonDynamoDBAsyncClient client = new AmazonDynamoDBAsyncClient(new
-            BasicAWSCredentials( "ACCESS_KEY","SECRET_KEY"));
+            BasicAWSCredentials( "AKIAXCSP5TBARZFOQKM4","A9wldPWa26n8vNnjodknMPDGeFRb68XRWhepL4MY"));
 
     private DynamodbClient() {
     }
