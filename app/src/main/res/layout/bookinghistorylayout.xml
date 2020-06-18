@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#fff"
+    >
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardElevation="20dp"
+        app:cardCornerRadius="10dp"
+        >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="#000"
+                    >
+            <ImageView
+                android:id="@+id/bookimage"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:scaleType="fitXY"
+                android:layout_weight="3"
+                >
+
+            </ImageView>
+
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="5dp"
+                            android:text="Title"
+                            android:textStyle="bold"
+                            android:textColor="#fff"
+                            />
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/overview"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="30dp"-->
+<!--                            android:ellipsize="end"-->
+<!--                            android:maxLines="2"-->
+<!--                            android:text="Overview" />-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/language"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="30dp"-->
+<!--                            android:text="Oringal language" />-->
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Date of Booking"
+                            android:textColor="#fff"
+                            android:textStyle="bold"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="15dp">
+                        </TextView>
+                        <TextView
+                            android:id="@+id/bookeddate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="5dp"
+                            android:text="Date"
+                            android:textColor="#fff"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Time of Booking"
+                            android:textColor="#fff"
+                            android:textStyle="bold"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="15dp">
+                        </TextView>
+                        <TextView
+
+                            android:id="@+id/bookedtime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="5dp"
+                            android:text="Time"
+                            android:layout_marginBottom="10dp"
+                            android:textColor="#fff"
+                            />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

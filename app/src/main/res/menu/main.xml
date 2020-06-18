@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/signout"
+        android:orderInCategory="200"
+        android:title="Sign Out"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/profile"
+        android:orderInCategory="100"
+        android:title="My Profile"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/Booking_History"
+        android:orderInCategory="10"
+        android:title="Booking History"
+        app:showAsAction="never" />
+
+</menu>
