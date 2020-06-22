@@ -23,6 +23,7 @@ public class UtilClass {
 
     }
 
+
     public <E> ArrayList<E> multipleResponseTransformer(ArrayList<Map<String,AttributeValue>>response ,Class<E> resclass )
     {
         ArrayList<E>finalarrayList=new ArrayList<>();

@@ -29,25 +29,25 @@ public class UserHandler extends AppCompatActivity {
     }
 
 
-    public UserDetails getUserDetails(String uid, Context context)
+    public UserDetails getUserDetails(String uid,Context context)
     {
         // this method will accept a userId and then display
         //  the user' details on the screen / activity
 
         UserDetails userDetails = DynamodbImpl.dynamodbDao.getUserDetails
-                (FirebaseAuth.getInstance().getCurrentUser().getUid(), context);
+                (uid,context);
 
         return userDetails;
     }
 
 
-    public void updateUserDetails(UserDetails newUserDetails)
+    public boolean updateUserDetails(String uid,UserDetails newUserDetails)
     {
         // this method will accept new Userdetails and a userId
         // and then update the old details of the user having this userId
         // with the new-ones
 
-        DynamodbImpl.dynamodbDao.updateUserDetails(FirebaseAuth.getInstance().getCurrentUser().getUid(),newUserDetails);
+        return DynamodbImpl.dynamodbDao.updateUserDetails(uid,newUserDetails);
     }
 
     public ArrayList<BookedEvent> getUserBookings(String userId)

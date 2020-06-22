@@ -8,12 +8,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 import androidx.appcompat.app.AppCompatActivity;
 import src.com.filmybonanza.R;
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         // and then register the user. This user will also be added to the Users' database
     }
 
-    public void loginUser(FirebaseUser firebaseUser) {
+    public FirebaseUser loginUser(FirebaseUser firebaseUser) {
 
         // This method will take in the user details and then first authenticate the user.
         // If the details are invalid , then user will be asked to enter the valid details
@@ -65,17 +67,18 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-//                        if (Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid().equals("dWvvk1KXtNgooF4Bmqs6Bwxr2ro2")) {
-//                            Intent inte = new Intent(MainActivity.this, ManagerActivity.class);
-//                            context.startActivity(inte);
-//                            finish();
-//                        }
-//                        else {
-                        Intent inte = new Intent(MainActivity.this, ManagerActivity.class);
+                        if (Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid().equals("XPluEZYWjacVuRRcwzinIHt9K212")) {
+                            Intent inte = new Intent(MainActivity.this, ManagerActivity.class);
+                            MainActivity.this.startActivity(inte);
+                            finish();
+                        }
+                        else {
+                            Toast.makeText(MainActivity.this,"Dont have the Required permission , entering as a normal user",Toast.LENGTH_LONG).show();
+                        Intent inte = new Intent(MainActivity.this, UserActivity.class);
 
                         MainActivity.this.startActivity(inte);
                         finish();
-//                        }
+                        }
                     }
                 })
                 .create();
@@ -98,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        return FirebaseAuth.getInstance().getCurrentUser();
     }
 
     @Override

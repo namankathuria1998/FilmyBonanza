@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import src.com.filmybonanza.activities.ShowEventDetails;
 import src.com.filmybonanza.activities.Ticket;
 import src.com.filmybonanza.singleton.DependencyInjection;
 
@@ -71,6 +73,13 @@ public class BookingHistoryAdapter extends RecyclerView.Adapter<BookingHistoryAd
                     BookedEvent bookedEvent=arrayList.get(getAdapterPosition());
                     String json = DependencyInjection.getGson().toJson(bookedEvent);
                     Intent intent1 = new Intent(context, Ticket.class);
+
+                    ShowEventDetails obj=new ShowEventDetails();
+                    EditText noOfTickets = obj.enterticketdetails.findViewById(R.id.nooftickets);
+                    String ntickets= String.valueOf(200*Integer.valueOf(noOfTickets.getText().toString()));
+                    intent1.putExtra("fee" , ntickets);
+                    intent1.putExtra("SeatsSelected" , obj.seatsSelected);
+
                     intent1.putExtra("key" , json);
                     context.startActivity(intent1);
                 }

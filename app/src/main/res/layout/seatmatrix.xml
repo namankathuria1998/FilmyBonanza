@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="15dp"
         android:orientation="vertical"
         >
 
@@ -41,6 +41,7 @@
         android:layout_margin="10dp"
         android:id="@+id/rb3"
         android:checked="false"
+        android:onClick="alreadyInProgress"
         />
 
     <RadioButton
@@ -48,6 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:id="@+id/rb4"
+        android:onClick="alreadyInProgress"
         android:checked="false"
         />
 
@@ -56,6 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:id="@+id/rb5"
+        android:onClick="alreadyInProgress"
         android:checked="false"
         />
 
@@ -71,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:id="@+id/rb6"
+            android:onClick="alreadyInProgress"
             android:checked="false"
             />
 
@@ -90,6 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:id="@+id/rb8"
+            android:onClick="alreadyInProgress"
             android:checked="false"
             />
 
@@ -98,6 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:id="@+id/rb9"
+            android:onClick="alreadyInProgress"
             android:checked="false"
             />
 
@@ -106,6 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:id="@+id/rb10"
+            android:onClick="alreadyInProgress"
             android:checked="false"
             />
 
@@ -120,6 +127,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:id="@+id/rb11"
+            android:onClick="alreadyInProgress"
             android:checked="false"
             />
 
@@ -129,6 +138,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
+            android:id="@+id/rb12"
+            android:onClick="alreadyInProgress"
             android:layout_margin="10dp"
             />
 
@@ -136,6 +147,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:id="@+id/rb13"
+            android:onClick="alreadyInProgress"
             android:checked="false"
             />
 
@@ -143,6 +156,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:id="@+id/rb14"
             android:checked="false"
             />
 
@@ -150,6 +164,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:id="@+id/rb15"
             android:checked="false"
             />
 

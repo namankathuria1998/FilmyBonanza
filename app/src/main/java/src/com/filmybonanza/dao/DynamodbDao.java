@@ -11,8 +11,8 @@ import src.com.filmybonanza.UserDetails;
 
 public interface DynamodbDao {
 
-    UserDetails getUserDetails(String userId, Context context);
-    void updateUserDetails(String userId , UserDetails newUserDetails);
+    UserDetails getUserDetails(String userId,Context context);
+    boolean updateUserDetails(String userId , UserDetails newUserDetails);
     void addEvent(Event event);
     void bookMovie(BookedEvent bookedEvent);
     void displayEventDetails(Event event, Context context);
@@ -24,5 +24,8 @@ public interface DynamodbDao {
     void setSeat(String key,String whatToBeSet);
     String getSeatMatrixInTickets(String locatioon_timings);
     void setSeatMatrixInTickets(String locatioon_timings, int i,char ch);
+    void addTimeDuration(String key,Long timeDuration);
+    void initialiseTotalSeats(String key,String noOfSeats);
+    void addseatsinSeatAvailability(String key);
 
 }

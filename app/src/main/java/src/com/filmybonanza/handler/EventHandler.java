@@ -5,6 +5,7 @@ import src.com.filmybonanza.SeatAvailability;
 import src.com.filmybonanza.dao.DynamodbImpl;
 import src.com.filmybonanza.Event;
 import src.com.filmybonanza.R;
+import src.com.filmybonanza.singleton.DependencyInjection;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -70,4 +71,20 @@ public class EventHandler extends AppCompatActivity {
 
         DynamodbImpl.dynamodbDao.setSeatMatrixInTickets(locatioon_timings,i,ch);
     }
+
+    public void addTimeDuration(String key,Long timeDuration)
+    {
+        DependencyInjection.getEventHandler().addTimeDuration(key,timeDuration);
+    }
+
+    public void initialiseTotalSeats(String key, String noOfSeats)
+    {
+        DynamodbImpl.dynamodbDao.initialiseTotalSeats(key,noOfSeats);
+    }
+
+    public void addseatsinSeatAvailability(String key)
+    {
+        DynamodbImpl.dynamodbDao.addseatsinSeatAvailability(key);
+    }
+
 }

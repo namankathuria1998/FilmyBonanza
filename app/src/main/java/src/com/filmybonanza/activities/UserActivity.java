@@ -2,6 +2,7 @@ package src.com.filmybonanza.activities;
 
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.Log;
 
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.PutItemRequest;
@@ -57,18 +58,20 @@ public class UserActivity extends AppCompatActivity {
             map.put("uid",new AttributeValue(FirebaseAuth.getInstance().getCurrentUser().getUid()));
             map.put("userName",new AttributeValue(FirebaseAuth.getInstance().getCurrentUser().getDisplayName()));
             map.put("userEmail",new AttributeValue(FirebaseAuth.getInstance().getCurrentUser().getEmail()));
-            map.put("UserPhoneNo",new AttributeValue(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber()));
+//            map.put("UserPhoneNo",new AttributeValue(FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber()));
+
 
             putItemRequest.setTableName("UsersDetails");
             putItemRequest.setItem(map);
-            DynamodbClient.getClient().putItem(putItemRequest);
 
-//            PutItemRequest putItemRequest1=new PutItemRequest();
-//            putItemRequest.setTableName("UsersBookings");
-//
-//            Map<String,AttributeValue>bookmap=new HashMap<>();
-//            bookmap.put("uid",new AttributeValue(FirebaseAuth.getInstance().getCurrentUser().getUid()));
-//            bookmap.put("bookedevents",new AttributeValue().withL());
+           try {
+               DynamodbClient.getClient().putItem(putItemRequest);
+           }
+           catch (Exception e)
+           {
+               Log.e("Sign in shaket", e.toString() );
+               Log.e("Sign-In Id", FirebaseAuth.getInstance().getCurrentUser().getUid() );
+           }
         }
 
     }

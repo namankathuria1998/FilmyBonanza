@@ -13,6 +13,7 @@ import com.amazonaws.services.dynamodbv2.model.PutItemRequest;
 import com.amazonaws.services.dynamodbv2.model.QueryRequest;
 import com.amazonaws.services.dynamodbv2.model.QueryResult;
 import com.amazonaws.services.dynamodbv2.model.UpdateItemRequest;
+import com.amazonaws.services.dynamodbv2.model.UpdateItemResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
@@ -27,6 +28,7 @@ import src.com.filmybonanza.BookedEvent;
 import src.com.filmybonanza.Event;
 import src.com.filmybonanza.R;
 import src.com.filmybonanza.SeatAvailability;
+import src.com.filmybonanza.TimingsForLocation;
 import src.com.filmybonanza.singleton.DependencyInjection;
 import src.com.filmybonanza.dynamodbClient.DynamodbClient;
 import src.com.filmybonanza.UserDetails;
@@ -36,7 +38,7 @@ public class DynamodbImpl implements DynamodbDao {
     public static DynamodbDao dynamodbDao=new DynamodbImpl();
 
     @Override
-    public UserDetails getUserDetails(String userId, Context context) {
+    public UserDetails getUserDetails(String userId,Context context) {
 
         GetItemRequest getItemRequest=new GetItemRequest();
         getItemRequest.setTableName("UsersDetails");
@@ -45,17 +47,19 @@ public class DynamodbImpl implements DynamodbDao {
         getItemRequest.setKey(map);
 
         GetItemResult getItemResult = DynamodbClient.getClient().getItem(getItemRequest);
-        if(getItemResult == null) return null;
-
+        if(getItemResult == null) {
+            return null;
+        }
         Map<String,AttributeValue>item = getItemResult.getItem();
-        if(item==null) return null;
-
+        if(item==null) {
+            return null;
+        }
         return DependencyInjection.getUtilClass().singleResponseTransformer(item,UserDetails.class);
     }
 
 
     @Override
-    public void updateUserDetails(String userId, UserDetails newUserDetails) {
+    public boolean updateUserDetails(String userId, UserDetails newUserDetails) {
 
         UpdateItemRequest updateItemRequest=new UpdateItemRequest();
         updateItemRequest.setTableName("UsersDetails");
@@ -75,10 +79,10 @@ public class DynamodbImpl implements DynamodbDao {
         values.put(":val3",new AttributeValue(newUserDetails.getUserPhoneNo()));
         updateItemRequest.setExpressionAttributeValues(values);
 
-        updateItemRequest.setUpdateExpression("set #email = :val2 ,#name = :val1 , #phoneNo = :val3");
+        updateItemRequest.setUpdateExpression("set #email = :val2 , #name = :val1 , #phoneNo = :val3");
 
         try {
-            DynamodbClient.getClient().updateItem(updateItemRequest);
+           UpdateItemResult updateItemResult = DynamodbClient.getClient().updateItem(updateItemRequest);
         }
         catch (Exception e)
         {
@@ -86,6 +90,7 @@ public class DynamodbImpl implements DynamodbDao {
 
             Log.e("catch", e.toString() );
         }
+        return  true;
     }
 
 
@@ -147,6 +152,7 @@ public class DynamodbImpl implements DynamodbDao {
         overview.setText("Summary :- "+event.getSummary());
         date.setText("Date :-  " + event.getDate());
         title.setText("Title :-  " + event.getTitle());
+
     }
 
     @Override
@@ -186,7 +192,7 @@ public class DynamodbImpl implements DynamodbDao {
         queryRequest.setIndexName("UsersBookings-index");
 
         Map<String,AttributeValue>values=new HashMap<>();
-        values.put(":userid",new AttributeValue(FirebaseAuth.getInstance().getCurrentUser().getUid()));
+        values.put(":userid",new AttributeValue(userId));
         queryRequest.setExpressionAttributeValues(values);
 
         Map<String,String>names=new HashMap<>();
@@ -319,5 +325,61 @@ public class DynamodbImpl implements DynamodbDao {
         DynamodbClient.getClient().updateItem(updateItemRequest);
 
     }
+
+    @Override
+    public void addTimeDuration(String key,Long timeDuration) {
+        UpdateItemRequest updateItemRequest=new UpdateItemRequest();
+        updateItemRequest.setTableName("LockTable");
+
+        Map<String,AttributeValue>map=new HashMap<>();
+        map.put("key",new AttributeValue(key));
+        updateItemRequest.setKey(map);
+
+        Map<String,String>names=new HashMap<>();
+        names.put("#name","timeDuration");
+        updateItemRequest.setExpressionAttributeNames(names);
+
+        Map<String,AttributeValue>values=new HashMap<>();
+        values.put(":val",new AttributeValue().withN(String.valueOf(timeDuration)));
+        updateItemRequest.setExpressionAttributeValues(values);
+
+        updateItemRequest.setUpdateExpression("add #name :val");
+        DynamodbClient.getClient().updateItem(updateItemRequest);
+    }
+
+    @Override
+    public void initialiseTotalSeats(String key, String noOfSeats) {
+
+        String s="";
+        for(int i=0;i<Integer.valueOf(noOfSeats);i++) s+="A";
+
+        PutItemRequest putItemRequest=new PutItemRequest();
+        putItemRequest.setTableName("Tickets");
+
+        Map<String, AttributeValue>map=new HashMap<>();
+        map.put("availTickets" , new AttributeValue(noOfSeats));
+        map.put("location_timings" , new AttributeValue(key));
+        map.put("seatMatrix" , new AttributeValue(s));
+
+        putItemRequest.setItem(map);
+        DynamodbClient.getClient().putItem(putItemRequest);
+
+    }
+
+    @Override
+    public void addseatsinSeatAvailability(String key) {
+        PutItemRequest putItemRequest=new PutItemRequest();
+        putItemRequest.setTableName("SeatAvailability");
+
+        Map<String, AttributeValue>map=new HashMap<>();
+        map.put("location_timings_seat" , new AttributeValue(key));
+        map.put("isBooked" , new AttributeValue("false"));
+
+        putItemRequest.setItem(map);
+        DynamodbClient.getClient().putItem(putItemRequest);
+    }
+
+
+
 
 }

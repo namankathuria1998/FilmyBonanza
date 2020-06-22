@@ -6,16 +6,6 @@
     >
 
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:hint="Enter the no of tickets "
-        android:id="@+id/nooftickets"
-        >
-
-    </EditText>
-
 <!--    <EditText-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
@@ -33,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:spinnerMode="dropdown"/>
 
@@ -57,6 +48,7 @@
             android:text="  10 AM - 1 PM "
             android:layout_marginTop="10dp"
             android:checked="false"
+            android:onClick="onRadioButtonClicked"
             android:textSize="20dp" />
 
         <RadioButton
@@ -66,6 +58,7 @@
             android:text="  3PM - 6PM"
             android:layout_marginTop="20dp"
             android:checked="false"
+            android:onClick="onRadioButtonClicked"
 
             android:textSize="20dp" />
 
@@ -76,26 +69,52 @@
             android:text="  9PM - 12AM"
             android:layout_marginTop="20dp"
             android:checked="false"
-
+            android:onClick="onRadioButtonClicked"
             android:textSize="20dp" />
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Seat Matrix"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="80dp"
+            android:text="Seats available : Please select"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
             style="bold"
-            android:textSize="40dp"
+            android:id="@+id/select"
+            android:textSize="20dp"
             >
         </TextView>
 
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="200dp"
-            android:src="@drawable/seat">
 
-        </ImageView>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="Enter tickets "
+            android:id="@+id/nooftickets"
+            >
+
+        </EditText>
+        <!--        -->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Seat Matrix"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginLeft="80dp"-->
+<!--            style="bold"-->
+<!--            android:textSize="40dp"-->
+<!--            >-->
+<!--        </TextView>-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="300dp"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:src="@drawable/seat">-->
+
+<!--        </ImageView>-->
     </RadioGroup>
 
 

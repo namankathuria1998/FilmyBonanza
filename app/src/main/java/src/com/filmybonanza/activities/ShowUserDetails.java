@@ -5,9 +5,14 @@ import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import src.com.filmybonanza.R;
 import src.com.filmybonanza.UserDetails;
@@ -47,7 +52,7 @@ public class ShowUserDetails extends AppCompatActivity {
 //        MainActivity obj=new MainActivity();
 //        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         UserDetails userDetails = DependencyInjection.getUserHandler()
-                .getUserDetails(FirebaseAuth.getInstance().getCurrentUser().getUid(), ShowUserDetails.this);
+                .getUserDetails(FirebaseAuth.getInstance().getCurrentUser().getUid(),ShowUserDetails.this);
 
         name.setText(userDetails.getUserName());
         email.setText(userDetails.getUserEmail());
@@ -74,9 +79,22 @@ public class ShowUserDetails extends AppCompatActivity {
                 String curemail = email.getText().toString();
                 String curpassword = phoneNo.getText().toString();
 
-                FirebaseAuth.getInstance().getCurrentUser().updateEmail(curemail);
+//                FirebaseAuth.getInstance().getCurrentUser().updateEmail(curemail);
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                user.updateEmail(email.getText().toString())
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+
+                                    Toast.makeText(ShowUserDetails.this, "The email updated.", Toast.LENGTH_SHORT).show();
+
+                                }
+                            }
+                        });
+
                 UserDetails newuserDetails=new UserDetails(curname,curemail,curpassword,FirebaseAuth.getInstance().getCurrentUser().getUid());
-                DependencyInjection.getUserHandler().updateUserDetails(newuserDetails);
+                DependencyInjection.getUserHandler().updateUserDetails(FirebaseAuth.getInstance().getCurrentUser().getUid(),newuserDetails);
 
                 save.setEnabled(false);
                 name.setEnabled(false);
