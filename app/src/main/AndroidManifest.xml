@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="src.com.filmybonanza">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
+    <application
+
+        android:allowBackup="true"
+        android:icon="@mipmap/mymovie"
+        android:label="Filmy Bonanza"
+
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".handler.EventHandler" />
+        <activity android:name=".handler.UserHandler" />
+        <activity android:name=".activities.UserActivity" />
+        <activity android:name=".activities.ManagerActivity" />
+        <activity android:name=".activities.ShowUserDetails" />
+        <activity android:name=".activities.MovieBookings" />
+        <activity android:name=".activities.ShowEventDetails" />
+        <activity android:name=".activities.Ticket" />
+        <activity android:name=".activities.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
+    </application>
+</manifest>

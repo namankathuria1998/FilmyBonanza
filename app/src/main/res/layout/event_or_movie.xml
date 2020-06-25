@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    >
+
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:id="@+id/radiogroup">
+
+        <RadioButton
+            android:id="@+id/Movie"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="  Add a Movie"
+            android:layout_marginTop="10dp"
+            android:checked="false"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/Event"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="  Add an Event"
+            android:layout_marginTop="20dp"
+            android:checked="false"
+
+            android:textSize="20dp" />
+    </RadioGroup>
+
+</LinearLayout>
